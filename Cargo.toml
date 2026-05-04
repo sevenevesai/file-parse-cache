@@ -1,0 +1,28 @@
+[package]
+name = "file-parse-cache"
+version = "0.1.0"
+edition = "2021"
+description = "Mtime-gated file parse cache for apps that poll files and reparse on change"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/sevenevesai/file-parse-cache"
+keywords = ["cache", "file", "mtime", "parse"]
+categories = ["caching", "filesystem"]
+
+[features]
+persist = ["dep:serde"]
+persist-bincode = ["persist", "dep:bincode"]
+persist-postcard = ["persist", "dep:postcard"]
+
+[dependencies]
+moka = { version = "0.12", features = ["sync"] }
+blake3 = "1"
+serde = { version = "1", features = ["derive"], optional = true }
+bincode = { version = "1", optional = true }
+postcard = { version = "1", features = ["alloc"], optional = true }
+
+[dev-dependencies]
+tempfile = "3"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+bincode = "1"
+postcard = { version = "1", features = ["alloc"] }
