@@ -1,5 +1,8 @@
 # file-parse-cache
 
+[<img alt="github" src="https://img.shields.io/badge/github-sevenevesai/file--parse--cache-8da0cb?style=for-the-badge&labelColor=555555&logo=github" height="20">](https://github.com/sevenevesai/file-parse-cache)
+[<img alt="crates.io" src="https://img.shields.io/crates/v/file-parse-cache.svg?style=for-the-badge&color=fc8d62&logo=rust" height="20">](https://crates.io/crates/file-parse-cache)
+
 In-memory cache for apps that repeatedly poll files and reparse them. Stores parsed values keyed by file path; re-parses only when the file's fingerprint (mtime by default, or content hash) changes. Backed by [moka](https://crates.io/crates/moka) for bounded-size LRU eviction — you set a max entry count and stale entries get evicted automatically.
 
 **Not for:** incremental computation engines ([salsa](https://github.com/salsa-rs/salsa)), high-throughput concurrent caches where you'd use [moka](https://crates.io/crates/moka) directly, or build tools that need cargo-style fingerprinting (see [rust-lang/cargo#11682](https://github.com/rust-lang/cargo/issues/11682) for why mtime alone isn't enough in CI). This crate solves the narrow problem of "I stat a file every N seconds and want to skip the parse when nothing changed."
