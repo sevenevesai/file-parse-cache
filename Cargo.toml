@@ -1,9 +1,10 @@
 [package]
 name = "file-parse-cache"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Mtime-gated file parse cache for apps that poll files and reparse on change"
 license = "MIT OR Apache-2.0"
+homepage = "https://seveneves.ai/crates"
 repository = "https://github.com/sevenevesai/file-parse-cache"
 keywords = ["cache", "file", "mtime", "parse"]
 categories = ["caching", "filesystem"]
